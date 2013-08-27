@@ -17,3 +17,10 @@ parameters:
     sylius.currency:          EUR
 
     sylius.cache:             file_system
+
+    misi.database_legacy.driver: pdo_mysql
+    misi.database_legacy.host: 127.0.0.1
+    misi.database_legacy.port: null
+    misi.database_legacy.name: misi_legacy
+    misi.database_legacy.user: root
+    misi.database_legacy.password: null

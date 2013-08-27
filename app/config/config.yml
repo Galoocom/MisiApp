@@ -33,15 +33,27 @@ assetic:
 
 doctrine:
     dbal:
-        driver:   %sylius.database.driver%
-        host:     %sylius.database.host%
-        port:     %sylius.database.port%
-        dbname:   %sylius.database.name%
-        user:     %sylius.database.user%
-        password: %sylius.database.password%
-        charset:  UTF8
+      connections:
+        default:
+            driver:   %sylius.database.driver%
+            host:     %sylius.database.host%
+            port:     %sylius.database.port%
+            dbname:   %sylius.database.name%
+            user:     %sylius.database.user%
+            password: %sylius.database.password%
+            charset:  UTF8
+        legacy:
+            driver:   %misi.database_legacy.driver%
+            host:     %misi.database_legacy.host%
+            port:     %misi.database_legacy.port%
+            dbname:   %misi.database_legacy.name%
+            user:     %misi.database_legacy.user%
+            password: %misi.database_legacy.password%
+            charset:  UTF8
     orm:
         auto_generate_proxy_classes: %kernel.debug%
+        resolve_target_entities:
+            Galoo\Bundle\ShopBundle\Model\ShopInterface: Galoo\Bundle\ShopBundle\Entity\Shop
         entity_managers:
             default:
                 auto_mapping: true
