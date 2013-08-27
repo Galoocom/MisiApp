@@ -1,0 +1,3 @@
+misi_migration_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: MisiMigrationBundle:Default:index }

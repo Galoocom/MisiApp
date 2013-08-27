@@ -1,0 +1,7 @@
+parameters:
+#    misi_migration.example.class: Misi\Bundle\MigrationBundle\Example
+
+services:
+#    misi_migration.example:
+#        class: %misi_migration.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

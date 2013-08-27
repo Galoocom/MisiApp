@@ -71,6 +71,13 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+            
+            // Galoo bundles
+            new Galoo\Bundle\ShopBundle\GalooShopBundle(),
+            
+            // Misi bundles
+            new Misi\Bundle\MigrationBundle\MisiMigrationBundle(),
+            
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
