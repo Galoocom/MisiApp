@@ -30,8 +30,8 @@ class LoadUsersData extends DataFixture
 
         $user->setFirstname($this->faker->firstName);
         $user->setLastname($this->faker->lastName);
-        $user->setEmail('sylius@example.com');
-        $user->setPlainPassword('sylius');
+        $user->setEmail('admin@misi.co.uk');
+        $user->setPlainPassword('admin');
         $user->setEnabled(true);
         $user->setRoles(array('ROLE_SYLIUS_ADMIN'));
         $user->setCurrency('EUR');

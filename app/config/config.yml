@@ -52,8 +52,6 @@ doctrine:
             charset:  UTF8
     orm:
         auto_generate_proxy_classes: %kernel.debug%
-        resolve_target_entities:
-            Galoo\Bundle\ShopBundle\Model\ShopInterface: Galoo\Bundle\ShopBundle\Entity\Shop
         entity_managers:
             default:
                 auto_mapping: true

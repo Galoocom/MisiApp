@@ -103,3 +103,15 @@ sylius_resource:
                 model: Sylius\Bundle\CoreBundle\Model\User
                 controller: Sylius\Bundle\CoreBundle\Controller\UserController
                 repository: Sylius\Bundle\CoreBundle\Repository\UserRepository
+
+galoo_shop:
+    driver: doctrine/orm
+    classes:
+        shop:
+            model: Galoo\Bundle\ShopBundle\Model\Shop
+            controller: Galoo\Bundle\ShopBundle\Controller\ShopController
+            repository: Galoo\Bundle\ShopBundle\Repository\ShopRepository
+            form: Galoo\Bundle\ShopBundle\Form\Type\ShopType
+        payment_method:
+            model: Galoo\Bundle\ShopBundle\Model\PaymentMethod
+            repository: Galoo\Bundle\ShopBundle\Repository\ShopRepository
