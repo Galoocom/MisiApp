@@ -16,6 +16,7 @@ use Doctrine\Common\Collections\Collection;
 use Sylius\Bundle\VariableProductBundle\Model\VariableProduct as BaseProduct;
 use Sylius\Bundle\ShippingBundle\Model\ShippingCategoryInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
+use Galoo\Bundle\ShopBundle\Model\ShopInterface;
 
 /**
  * Sylius core product entity.
@@ -63,6 +64,13 @@ class Product extends BaseProduct implements ProductInterface
      * @var TaxCategoryInterface
      */
     protected $taxCategory;
+
+    /**
+     * Shop
+     *
+     * @var ShopInterface
+     */
+    protected $shop;
 
     /**
      * Shipping category.
@@ -252,4 +260,22 @@ class Product extends BaseProduct implements ProductInterface
             self::VARIANT_SELECTION_MATCH  => 'Options matching',
         );
     }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function getShop()
+    {
+        return $this->shop;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setShop(ShopInterface $shop)
+    {
+        $this->shop = $shop;
+        
+        return $this;
+    }    
 }

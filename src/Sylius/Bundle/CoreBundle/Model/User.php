@@ -29,6 +29,7 @@ class User extends BaseUser implements UserInterface
     protected $updatedAt;
     protected $currency;
     protected $orders;
+    protected $shops;
     protected $billingAddress;
     protected $shippingAddress;
     protected $addresses;
@@ -37,6 +38,7 @@ class User extends BaseUser implements UserInterface
     {
         $this->createdAt = new DateTime();
         $this->orders    = new ArrayCollection();
+        $this->shops     = new ArrayCollection();
         $this->addresses = new ArrayCollection();
 
         parent::__construct();
@@ -60,6 +62,16 @@ class User extends BaseUser implements UserInterface
     public function getOrders()
     {
         return $this->orders;
+    }
+
+    /**
+     * Get shops
+     *
+     * @return ArrayCollection
+     */
+    public function getShops()
+    {
+        return $this->shops;
     }
 
     /**

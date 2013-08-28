@@ -108,6 +108,9 @@ class LoadProductsData extends DataFixture
         $product->setShortDescription($this->faker->sentence);
         $product->setVariantSelectionMethod(Product::VARIANT_SELECTION_MATCH);
 
+        $shop = $this->getReference('Sylius.Shop-'.rand(1,15));
+        $product->setShop($shop);
+        
         $this->addMasterVariant($product);
 
         $this->setTaxons($product, array('T-Shirts', 'SuperTees'));
@@ -149,6 +152,9 @@ class LoadProductsData extends DataFixture
         $product->setShortDescription($this->faker->sentence);
         $product->setVariantSelectionMethod(Product::VARIANT_SELECTION_MATCH);
 
+        $shop = $this->getReference('Sylius.Shop-'.rand(1,15));
+        $product->setShop($shop);
+        
         $this->addMasterVariant($product);
 
         $this->setTaxons($product, array('Stickers', 'Stickypicky'));
@@ -184,6 +190,9 @@ class LoadProductsData extends DataFixture
         $product->setDescription($this->faker->paragraph);
         $product->setShortDescription($this->faker->sentence);
 
+        $shop = $this->getReference('Sylius.Shop-'.rand(1,15));
+        $product->setShop($shop);
+        
         $this->addMasterVariant($product);
 
         $this->setTaxons($product, array('Mugs', 'Mugland'));
@@ -217,6 +226,9 @@ class LoadProductsData extends DataFixture
         $product->setDescription($this->faker->paragraph);
         $product->setShortDescription($this->faker->sentence);
 
+        $shop = $this->getReference('Sylius.Shop-'.rand(1,15));
+        $product->setShop($shop);
+        
         $this->addMasterVariant($product, $isbn);
 
         $this->setTaxons($product, array('Books', 'Bookmania'));

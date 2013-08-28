@@ -20,12 +20,14 @@ class LoadShopData extends DataFixture
         for ($i = 1; $i <= 15; $i++) {
             
             $user = $this->getReference('Sylius.User-'.$i);
-                    
+                 
             $shop = new Shop();
 
-            //$shop->setUser($user);
+            $shop->setUser($user);
             $shop->setName(strtolower($user->getFirstname()));
+            $shop->setTitle($user->getFirstname() . '`s shop');
             $shop->setDescription($this->faker->sentence);
+            $shop->setEnabled(true);
             $shop->setCreatedAt(new \DateTime());
             
             $keywords = array();
