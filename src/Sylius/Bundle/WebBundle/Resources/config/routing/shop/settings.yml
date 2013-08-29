@@ -1,0 +1,17 @@
+# This file is part of the Sylius package.
+# (c) Paweł Jędrzejewski
+
+sylius_shop_general_settings:
+    pattern: /general
+    defaults:
+        _controller: sylius.controller.settings:updateAction
+        namespace: general
+
+        template: SyliusWebBundle:Shop/Settings:general.html.twig
+
+sylius_shop_taxation_settings:
+    pattern: /taxation
+    defaults:
+        _controller: sylius.controller.settings:updateAction
+        namespace: taxation
+        template: SyliusWebBundle:Shop/Settings:taxation.html.twig

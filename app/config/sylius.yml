@@ -74,7 +74,7 @@ sylius_inventory:
             model: Sylius\Bundle\CoreBundle\Model\InventoryUnit
         stockable:
             model: %sylius.model.variant.class%
-
+            
 sylius_payments:
     driver: doctrine/orm
     gateways:

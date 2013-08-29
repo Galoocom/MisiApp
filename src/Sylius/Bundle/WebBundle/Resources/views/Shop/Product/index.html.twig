@@ -1,0 +1,30 @@
+{% extends 'SyliusWebBundle:Shop:backendLayout.html.twig' %}
+
+{% import 'SyliusWebBundle:Backend/Macros:buttons.html.twig' as buttons %}
+{% from 'SyliusWebBundle:Backend/Macros:misc.html.twig' import pagination %}
+{% from 'SyliusWebBundle:Shop/Product:macros.html.twig' import list %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{{ 'sylius.product.index_header'|trans|raw }}</h1>
+</div>
+
+<div class="well well-small">
+    {{ buttons.create(path('sylius_shop_product_create'), 'sylius.product.create'|trans) }}
+</div>
+
+<div class="row-fluid">
+    <div class="span5">
+        {{ pagination(products) }}
+    </div>
+    <div class="span7">
+        {% render(url('sylius_shop_product_filter_form')) %}
+    </div>
+</div>
+
+
+{{ list(products, shop) }}
+
+{{ pagination(products) }}
+
+{% endblock %}

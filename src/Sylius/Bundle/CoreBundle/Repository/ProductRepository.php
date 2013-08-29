@@ -13,6 +13,7 @@ namespace Sylius\Bundle\CoreBundle\Repository;
 
 use Sylius\Bundle\TaxonomiesBundle\Model\TaxonInterface;
 use Sylius\Bundle\VariableProductBundle\Doctrine\ORM\VariableProductRepository;
+use Galoo\Bundle\ShopBundle\Model\ShopInterface;
 
 /**
  * Product repository.
@@ -42,6 +43,35 @@ class ProductRepository extends VariableProductRepository
         return $this->getPaginator($queryBuilder);
     }
 
+    public function createByShopPaginator(ShopInterface $shop)
+    {
+        $queryBuilder = $this->getCollectionQueryBuilder();
+
+        $queryBuilder
+            ->innerJoin('product.shop', 'shop')
+            ->andWhere('shop = :shop')
+            ->setParameter('shop', $shop)
+        ;
+
+        return $this->getPaginator($queryBuilder);
+    }
+    
+    public function createByShopTaxonPaginator(ShopInterface $shop, TaxonInterface $taxon)
+    {
+        $queryBuilder = $this->getCollectionQueryBuilder();
+
+        $queryBuilder
+            ->innerJoin('product.shop', 'shop')
+            ->innerJoin('product.taxons', 'taxon')
+            ->andWhere('taxon = :taxon')
+            ->andWhere('shop = :shop')
+            ->setParameter('taxon', $taxon)
+            ->setParameter('shop', $shop)
+        ;
+
+        return $this->getPaginator($queryBuilder);
+    }
+    
     /**
      * Create filter paginator.
      *

@@ -42,6 +42,10 @@
         <many-to-one field="user" target-entity="Sylius\Bundle\CoreBundle\Model\UserInterface" inversed-by="orders">
             <join-column name="user_id" referenced-column-name="id" nullable="true" />
         </many-to-one>
+        
+        <many-to-one field="shop" target-entity="Galoo\Bundle\ShopBundle\Model\ShopInterface" inversed-by="orders" orphan-removal="true">
+            <join-column name="shop_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
 
         <field name="currency" length="3" />
     </mapped-superclass>

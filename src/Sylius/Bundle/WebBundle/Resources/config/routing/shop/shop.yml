@@ -1,0 +1,25 @@
+sylius_shop_frontpage:
+    pattern: /
+    defaults: { _controller: galoo.controller.shop:indexAction }
+    
+sylius_shop_dashboard:
+    pattern: /admin/dashboard
+    defaults: { _controller: galoo.controller.shop.dashboard:indexAction }
+    
+sylius_shop_product:
+    pattern: /p/{slug}
+    host:     "{subdomain}.%misi.base_host%"
+    requirements: { subdomain: '\b(?!www\.)(\w+(?:-\w+)*)' }
+    defaults:
+       _controller: sylius.controller.product:showAction
+       _sylius:
+            template: SyliusWebBundle:Frontend/Product:show.html.twig
+            criteria: {slug: $slug}
+            
+sylius_shop_product_index_by_shop_taxon:
+    pattern: /t/{permalink}
+    defaults:
+        _controller: sylius.controller.product:indexByShopTaxonAction
+        _sylius:
+            template: SyliusWebBundle:Shop/Product:indexByTaxon.html.twig
+

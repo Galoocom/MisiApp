@@ -1,0 +1,22 @@
+{% extends 'SyliusWebBundle:Shop:backendLayout.html.twig' %}
+
+{% import 'SyliusWebBundle:Shop/Macros:buttons.html.twig' as buttons %}
+{% from 'SyliusWebBundle:Shop/Macros:misc.html.twig' import pagination %}
+{% from 'SyliusWebBundle:Shop/PaymentMethod:macros.html.twig' import list %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{{ 'sylius.payment_method.index_header'|trans|raw }}</h1>
+</div>
+
+<div class="well well-small">
+    {{ buttons.create(path('sylius_shop_payment_method_create'), 'sylius.payment_method.create'|trans) }}
+</div>
+
+{{ pagination(payment_methods) }}
+{{ list(payment_methods) }}
+{{ pagination(payment_methods) }}
+{#
+{{ dump(payment_methods) }}
+#}
+{% endblock %}

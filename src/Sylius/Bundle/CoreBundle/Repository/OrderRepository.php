@@ -15,9 +15,25 @@ use DateTime;
 use FOS\UserBundle\Model\UserInterface;
 use Sylius\Bundle\SalesBundle\Doctrine\ORM\OrderRepository as BaseOrderRepository;
 use YaLinqo\Enumerable;
+use Galoo\Bundle\ShopBundle\Model\ShopInterface;
 
 class OrderRepository extends BaseOrderRepository
 {
+   /**
+     * Create shop orders paginator.
+     *
+     * @param \Galoo\Bundle\ShopBundle\Model\ShopInterface $shop
+     * @param array $sorting
+     *
+     * @return PagerfantaInterface
+     */
+    public function createByShopPaginator(ShopInterface $shop, array $sorting = array())
+    {
+        $queryBuilder = $this->getCollectionQueryBuilderByShop($shop, $sorting);
+
+        return $this->getPaginator($queryBuilder);
+    }
+    
     /**
      * Create user orders paginator.
      *
@@ -175,6 +191,21 @@ class OrderRepository extends BaseOrderRepository
             ->setParameter('from', $from)
             ->setParameter('to', $to)
         ;
+    }
+
+    protected function getCollectionQueryBuilderByShop(ShopInterface $shop, array $sorting = array())
+    {
+        $queryBuilder = $this->getCollectionQueryBuilder();
+
+        $queryBuilder
+            ->innerJoin('o.shop', 'shop')
+            ->andWhere('shop = :shop')
+            ->setParameter('shop', $shop)
+        ;
+
+        $this->applySorting($queryBuilder, $sorting);
+
+        return $queryBuilder;
     }
 
     protected function getCollectionQueryBuilderByUser(UserInterface $user, array $sorting = array())

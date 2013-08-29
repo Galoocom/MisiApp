@@ -1,0 +1,10 @@
+sylius_shop_inventory_index:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.product:indexByShopAction
+        _sylius:
+            template: SyliusWebBundle:Shop/Inventory:index.html.twig
+            sortable: true
+            sorting:
+                updatedAt: asc

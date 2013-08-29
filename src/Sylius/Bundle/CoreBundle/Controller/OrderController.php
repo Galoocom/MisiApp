@@ -35,6 +35,36 @@ class OrderController extends ResourceController
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
+    public function indexByShopAction(Request $request)
+    {
+        $config = $this->getConfiguration();
+        $sorting = $config->getSorting();
+
+        $shop = $this->get('galoo.shop_context')->getShop();
+        
+        if (!isset($shop)) {
+            throw new NotFoundHttpException('Requested shop does not exist');
+        }
+
+        $paginator = $this
+            ->getRepository()
+            ->createByShopPaginator($shop, $sorting);
+
+        $paginator->setCurrentPage($request->get('page', 1), true, true);
+        $paginator->setMaxPerPage($config->getPaginationMaxPerPage());
+
+        return $this->renderResponse('SyliusWebBundle:Shop/Order:indexByShop.html', array(
+            'shop'   => $shop,
+            'orders' => $paginator
+        ));
+    }
+    
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     */
     public function indexByUserAction(Request $request, $id)
     {
         $config = $this->getConfiguration();

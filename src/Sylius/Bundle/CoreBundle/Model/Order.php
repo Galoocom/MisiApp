@@ -17,6 +17,7 @@ use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
 use Sylius\Bundle\CartBundle\Model\Cart;
 use Sylius\Bundle\PaymentsBundle\Model\PaymentInterface;
 use Sylius\Bundle\SalesBundle\Model\AdjustmentInterface;
+use Galoo\Bundle\ShopBundle\Model\ShopInterface;
 
 /**
  * Order entity.
@@ -31,6 +32,13 @@ class Order extends Cart implements OrderInterface
      * @var UserInterface
      */
      protected $user;
+
+    /**
+     * Shop
+     *
+     * @var ShopInterface
+     */
+    protected $shop;
 
     /**
      * Order shipping address.
@@ -444,4 +452,22 @@ class Order extends Cart implements OrderInterface
 
         return false;
     }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function getShop()
+    {
+        return $this->shop;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setShop(ShopInterface $shop)
+    {
+        $this->shop = $shop;
+        
+        return $this;
+    }    
 }

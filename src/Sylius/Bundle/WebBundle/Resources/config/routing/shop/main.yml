@@ -1,0 +1,48 @@
+sylius_shop_shop:
+    resource: "@SyliusWebBundle/Resources/config/routing/shop/shop.yml"
+    host:     "{subdomain}.%misi.base_host%"
+    requirements: { subdomain: '\b(?!www\.)(\w+(?:-\w+)*)' }
+    
+sylius_shop_product:
+    resource: "@SyliusWebBundle/Resources/config/routing/shop/product.yml"
+    host:     "{subdomain}.%misi.base_host%"
+    requirements: { subdomain: '\b(?!www\.)(\w+(?:-\w+)*)' }
+    prefix: /admin/products    
+    
+sylius_shop_order:
+    resource: "@SyliusWebBundle/Resources/config/routing/shop/order.yml"
+    host:     "{subdomain}.%misi.base_host%"
+    requirements: { subdomain: '\b(?!www\.)(\w+(?:-\w+)*)' }
+    prefix: /admin/orders    
+
+sylius_shop_payment:
+    resource: "@SyliusWebBundle/Resources/config/routing/shop/payment.yml"
+    host:     "{subdomain}.%misi.base_host%"
+    requirements: { subdomain: '\b(?!www\.)(\w+(?:-\w+)*)' }
+    prefix: /admin/payments    
+
+sylius_shop_payment_method:
+    resource: "@SyliusWebBundle/Resources/config/routing/shop/payment_method.yml"
+    host:     "{subdomain}.%misi.base_host%"
+    requirements: { subdomain: '\b(?!www\.)(\w+(?:-\w+)*)' }
+    prefix: /admin/payment-methods   
+
+sylius_shop_taxonomy:
+    resource: "@SyliusWebBundle/Resources/config/routing/shop/taxonomy.yml"
+    host:     "{subdomain}.%misi.base_host%"
+    requirements: { subdomain: '\b(?!www\.)(\w+(?:-\w+)*)' }
+    prefix: /admin/taxonomy    
+
+sylius_shop_inventory:
+    resource: "@SyliusWebBundle/Resources/config/routing/shop/inventory.yml"
+    host:     "{subdomain}.%misi.base_host%"
+    requirements: { subdomain: '\b(?!www\.)(\w+(?:-\w+)*)' }
+    prefix: /admin/inventory    
+
+sylius_shop_settings:
+    resource: "@SyliusWebBundle/Resources/config/routing/shop/settings.yml"
+    host:     "{subdomain}.%misi.base_host%"
+    requirements: { subdomain: '\b(?!www\.)(\w+(?:-\w+)*)' }
+    prefix: /admin/settings    
+
+ 

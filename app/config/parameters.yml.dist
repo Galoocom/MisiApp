@@ -24,3 +24,5 @@ parameters:
     misi.database_legacy.name: misi_legacy
     misi.database_legacy.user: root
     misi.database_legacy.password: null
+
+    misi.base_host: misi.dev

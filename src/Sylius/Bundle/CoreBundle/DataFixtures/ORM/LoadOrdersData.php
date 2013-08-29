@@ -25,6 +25,7 @@ class LoadOrdersData extends DataFixture
 
             for ($j = 0; $j <= rand(3, 6); $j++) {
                 $variant = $this->getReference('Sylius.Variant-'.rand(1, SYLIUS_FIXTURES_TOTAL_VARIANTS - 1));
+                $order->setShop($variant->getProduct()->getShop());
 
                 $item = $orderItemRepository->createNew();
 
