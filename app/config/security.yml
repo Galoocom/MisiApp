@@ -20,7 +20,13 @@ security:
                 lifetime: 31536000
                 always_remember_me: true
                 remember_me_parameter: _remember_me
-            logout: true
+            # cant work as atm there is a bug in php < 5.4.11 with session invalidation
+            # https://github.com/symfony/symfony/issues/5868
+            # logout: true
+            logout: 
+                path: fos_user_security_logout
+                target: /
+                invalidate_session: false
             anonymous: true
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

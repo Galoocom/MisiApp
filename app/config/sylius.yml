@@ -19,6 +19,9 @@ sylius_cart:
 
 sylius_settings:
     driver: doctrine/orm
+    classes:
+        parameter:
+            model: Galoo\Bundle\ShopBundle\Model\Parameter
 
 sylius_taxonomies:
     driver: doctrine/orm

@@ -8,6 +8,7 @@
     <parameters>
         <parameter key="sylius.settings_schema.general.class">Sylius\Bundle\CoreBundle\Settings\GeneralSettingsSchema</parameter>
         <parameter key="sylius.settings_schema.taxation.class">Sylius\Bundle\CoreBundle\Settings\TaxationSettingsSchema</parameter>
+        <parameter key="sylius.settings.manager.class">Galoo\Bundle\ShopBundle\Manager\SettingsManager</parameter>
 
         <parameter key="sylius.currency_context.class">Sylius\Bundle\CoreBundle\Context\CurrencyContext</parameter>
 
@@ -65,6 +66,14 @@
             <argument type="service" id="sylius.repository.zone" />
             <tag name="sylius.settings_schema" namespace="taxation" />
         </service>
+        
+        <service id="sylius.settings.manager" class="%sylius.settings.manager.class%">
+            <argument type="service" id="sylius.settings.schema_registry" />
+            <argument type="service" id="sylius.manager.parameter" />
+            <argument type="service" id="sylius.repository.parameter" />
+            <argument type="service" id="sylius.settings.cache" />
+            <argument type="service" id="galoo.shop_context" />
+        </service>         
 
         <!-- cart -->
         <service id="sylius.cart_item_resolver.default" class="%sylius.cart_item_resolver.default.class%">
