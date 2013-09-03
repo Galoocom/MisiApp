@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="misi_user.security.encoder.sha256_salted_encoder.class">Misi\Bundle\UserBundle\Security\Encoder\Sha256SaltedEncoder</parameter>
+        <parameter key="misi_user.eventlistener.user.class">Misi\Bundle\UserBundle\EventListener\UserEventListener</parameter>
+    </parameters>
+    
+    <services>
+        <service id="misi_user.security.encoder.sha256_salted_encoder" class="%misi_user.security.encoder.sha256_salted_encoder.class%">
+        </service>
+        <service id="misi_user.eventlistener.user" class="%misi_user.eventlistener.user.class%">
+            <tag name="kernel.event_subscriber" alias="misi_user_listener" />
+                <argument type="service" id="doctrine.orm.entity_manager"/>
+        </service>
+    </services>
+    
+</container>

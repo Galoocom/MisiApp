@@ -175,6 +175,17 @@ class FrontendMenuBuilder extends MenuBuilder
                 'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.administration')),
                 'labelAttributes' => array('icon' => 'icon-briefcase icon-large', 'iconOnly' => false)
             ))->setLabel($this->translate('sylius.frontend.menu.main.administration'));
+        } elseif (($this->securityContext->isGranted('ROLE_USER'))) {
+            $shops = $this->securityContext->getToken()->getUser()->getShops();
+            if (!empty($shops)) {
+                $shop = $shops->current();
+                $menu->addChild('admin', array(
+                    'route' => 'sylius_shop_dashboard',
+                    'routeParameters' => array('subdomain' => $shop->getName()),
+                    'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.administration')),
+                    'labelAttributes' => array('icon' => 'icon-briefcase icon-large', 'iconOnly' => false)
+                ))->setLabel($this->translate('sylius.frontend.menu.main.administration'));
+            }
         }
 
         return $menu;

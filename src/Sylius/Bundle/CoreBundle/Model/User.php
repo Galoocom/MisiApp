@@ -224,7 +224,7 @@ class User extends BaseUser implements UserInterface
     public function setEmail($email)
     {
         parent::setEmail($email);
-        $this->setUsername($email);
+        //$this->setUsername($email);
 
         return $this;
     }
@@ -232,7 +232,7 @@ class User extends BaseUser implements UserInterface
     public function setEmailCanonical($emailCanonical)
     {
         parent::setEmailCanonical($emailCanonical);
-        $this->setUsernameCanonical($emailCanonical);
+        //$this->setUsernameCanonical($emailCanonical);
 
         return $this;
     }
