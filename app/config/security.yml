@@ -4,7 +4,7 @@
 security:
     providers:
         fos_userbundle:
-            id: fos_user.user_manager
+            id: sylius.repository.user
     encoders:
         FOS\UserBundle\Model\UserInterface: 
             id: misi_user.security.encoder.sha256_salted_encoder

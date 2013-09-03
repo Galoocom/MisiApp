@@ -1,5 +1,0 @@
-parameters:
-    misi_user.security.encoder.sha256_salted_encoder.class: Misi\Bundle\UserBundle\Security\Encoder\Sha256SaltedEncoder
-services:
-    misi_user.security.encoder.sha256_salted_encoder:
-        class: %misi_user.security.encoder.sha256_salted_encoder.class%
