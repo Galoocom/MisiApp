@@ -33,7 +33,7 @@ class Shop extends BaseShop implements ShopInterface
     {
         parent::__construct();
 
-        $this->orders = new ArrayCollection();
+        $this->orders   = new ArrayCollection();
     }
     
     /**

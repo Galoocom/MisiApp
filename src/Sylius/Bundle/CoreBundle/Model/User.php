@@ -33,13 +33,20 @@ class User extends BaseUser implements UserInterface
     protected $billingAddress;
     protected $shippingAddress;
     protected $addresses;
+    
+    /**
+     * @var boolean
+     */
+    protected $legacyPassword;
+
 
     public function __construct()
     {
-        $this->createdAt = new DateTime();
-        $this->orders    = new ArrayCollection();
-        $this->shops     = new ArrayCollection();
-        $this->addresses = new ArrayCollection();
+        $this->createdAt      = new DateTime();
+        $this->orders         = new ArrayCollection();
+        $this->shops          = new ArrayCollection();
+        $this->addresses      = new ArrayCollection();
+        $this->legacyPassword = false;
 
         parent::__construct();
     }
@@ -226,6 +233,28 @@ class User extends BaseUser implements UserInterface
     {
         parent::setEmailCanonical($emailCanonical);
         $this->setUsernameCanonical($emailCanonical);
+
+        return $this;
+    }
+    
+    /**
+     * Sets password salt
+     * 
+     * @param string $salt
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+    }
+    
+    public function isLegacyPassword()
+    {
+        return $this->legacyPassword;
+    }
+
+    public function setLegacyPassword($boolean)
+    {
+        $this->legacyPassword = (Boolean) $boolean;
 
         return $this;
     }

@@ -37,6 +37,26 @@ class Taxon extends BaseTaxon implements ImageInterface
      * @var \DateTime
      */
     protected $updatedAt;
+    
+    /**
+     * @var string
+     */
+    protected $pageTitle;
+    
+    /**
+     * @var string
+     */
+    protected $metaTitle;
+
+    /**
+     * @var string
+     */
+    protected $metaDescription;
+
+    /**
+     * @var string
+     */
+    protected $metaKeywords;    
 
     public function __construct()
     {
@@ -94,4 +114,44 @@ class Taxon extends BaseTaxon implements ImageInterface
     {
         $this->updatedAt = $updatedAt;
     }
+    
+    public function getMetaTitle()
+    {
+        return $this->metaTitle;
+    }
+
+    public function setMetaTitle($metaTitle)
+    {
+        $this->metaTitle = $metaTitle;
+    }
+
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
+    }
+
+    public function setMetaDescription($metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
+    }
+
+    public function getMetaKeywords()
+    {
+        return $this->metaKeywords;
+    }
+
+    public function setMetaKeywords($metaKeywords)
+    {
+        $this->metaKeywords = $metaKeywords;
+    }
+    
+    public function getPageTitle()
+    {
+        return $this->pageTitle;
+    }
+
+    public function setPageTitle($pageTitle)
+    {
+        $this->pageTitle = $pageTitle;
+    }    
 }

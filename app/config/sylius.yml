@@ -111,7 +111,7 @@ galoo_shop:
     driver: doctrine/orm
     classes:
         shop:
-            model: Galoo\Bundle\ShopBundle\Model\Shop
+            model: Sylius\Bundle\CoreBundle\Model\Shop
             controller: Galoo\Bundle\ShopBundle\Controller\ShopController
             repository: Galoo\Bundle\ShopBundle\Repository\ShopRepository
             form: Galoo\Bundle\ShopBundle\Form\Type\ShopType

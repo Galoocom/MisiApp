@@ -77,6 +77,7 @@ class AppKernel extends Kernel
             
             // Misi bundles
             new Misi\Bundle\MigrationBundle\MisiMigrationBundle(),
+            new Misi\Bundle\UserBundle\MisiUserBundle(),
             
         );
 

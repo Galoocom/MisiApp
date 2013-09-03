@@ -3,7 +3,7 @@
 namespace Sylius\Bundle\CoreBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Galoo\Bundle\ShopBundle\Model\Shop;
+use Sylius\Bundle\CoreBundle\Model\Shop;
 
 /**
  * Shop fixtures.

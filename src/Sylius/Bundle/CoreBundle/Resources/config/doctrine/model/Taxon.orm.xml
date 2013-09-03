@@ -9,6 +9,11 @@
     <mapped-superclass name="Sylius\Bundle\CoreBundle\Model\Taxon" table="sylius_taxon">
         <field name="path" nullable="true" />
 
+        <field name="pageTitle" column="page_title" type="string" nullable="true" />
+        <field name="metaTitle" column="meta_title" type="string" nullable="true" />
+        <field name="metaKeywords" column="meta_keywords" type="string" nullable="true" />
+        <field name="metaDescription" column="meta_description" type="string" nullable="true" />
+        
         <many-to-one field="parent" target-entity="Sylius\Bundle\CoreBundle\Model\Taxon" inversed-by="children">
             <join-column name="parent_id" referenced-column-name="id" nullable="true" on-delete="CASCADE" />
             <gedmo:tree-parent />

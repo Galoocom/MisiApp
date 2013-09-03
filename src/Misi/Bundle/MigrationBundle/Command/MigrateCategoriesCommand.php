@@ -7,7 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Sylius\Bundle\CoreBundle\Entity\Taxon;
+use Sylius\Bundle\CoreBundle\Model\Taxon;
 use \SplFileInfo;
 
 class MigrateCategoriesCommand extends ContainerAwareCommand

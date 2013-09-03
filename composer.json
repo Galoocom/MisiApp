@@ -27,6 +27,8 @@
         "doctrine/orm":                         "~2.3",
         "friendsofsymfony/rest-bundle":         "0.13.*",
         "friendsofsymfony/user-bundle":         "2.0.*@dev",
+        "friendsofsymfony/advanced-encoder-bundle": "dev-master",
+        "knplabs/knp-gaufrette-bundle":         "0.2.*",
         "fzaninotto/faker":                     "1.2.*",
         "incenteev/composer-parameter-handler": "~2.0",
         "jms/serializer-bundle":                "0.12.*",
@@ -79,6 +81,7 @@
     "config": {
         "bin-dir": "bin"
     },
+    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
