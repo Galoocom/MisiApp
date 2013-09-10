@@ -21,6 +21,7 @@ security:
                 lifetime: 31536000
                 always_remember_me: true
                 remember_me_parameter: _remember_me
+                domain: .%misi.base_host%
             # cant work as atm there is a bug in php < 5.4.11 with session invalidation
             # https://github.com/symfony/symfony/issues/5868
             # logout: true
