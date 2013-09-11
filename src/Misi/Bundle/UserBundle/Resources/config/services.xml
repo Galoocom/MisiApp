@@ -7,6 +7,7 @@
     <parameters>
         <parameter key="misi_user.security.encoder.sha256_salted_encoder.class">Misi\Bundle\UserBundle\Security\Encoder\Sha256SaltedEncoder</parameter>
         <parameter key="misi_user.eventlistener.user.class">Misi\Bundle\UserBundle\EventListener\UserEventListener</parameter>
+        <parameter key="misi_user.security.userprovider.class">Misi\Bundle\UserBundle\Security\UserProvider</parameter>
     </parameters>
     
     <services>
@@ -15,6 +16,10 @@
         <service id="misi_user.eventlistener.user" class="%misi_user.eventlistener.user.class%">
             <tag name="kernel.event_subscriber" alias="misi_user_listener" />
                 <argument type="service" id="doctrine.orm.entity_manager"/>
+        </service>
+        <service id="misi_user.security.userprovider" class="%misi_user.security.userprovider.class%">
+            <argument type="service" id="fos_user.user_manager" />
+            <argument type="service" id="sylius.repository.user" />
         </service>
     </services>
     
