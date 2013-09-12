@@ -117,13 +117,13 @@
 </div>
 <hr />
 <div class="well">
-    <a href="{{ path('sylius_backend_order_index') }}" class="btn btn-primary">
+    <a href="{{ path('sylius_shop_order_index') }}" class="btn btn-primary">
         <i class="icon-list-alt"></i> {{ 'sylius.order.manage'|trans }}
     </a>
-    <a href="{{ path('sylius_backend_order_update', {'id': order.id}) }}" class="btn">
+    <a href="{{ path('sylius_shop_order_update', {'id': order.id}) }}" class="btn">
         <i class="icon-pencil"></i> {{ 'sylius.edit'|trans }}
     </a>
-    <form action="{{ path('sylius_backend_order_delete', {'id': order.id}) }}" method="post" style="display: inline;">
+    <form action="{{ path('sylius_shop_order_delete', {'id': order.id}) }}" method="post" style="display: inline;">
         <input type="hidden" name="_method" value="DELETE">
         <button class="btn btn-danger">
             <i class="icon-trash"></i> {{ 'sylius.delete'|trans }}
@@ -143,18 +143,18 @@
     </thead>
     <tbody>
         {% for item in order.items %}
-        {% set variant = item.sellable %}
+        {% set variant = item.variant %}
         {% set product = variant.product %}
         <tr>
             <td>{{ loop.index }}</td>
             <td>
-                <a href="{{ path('sylius_backend_product_show', {'id': product.id}) }}" class="btn btn-info">
+                <a href="{{ path('sylius_shop_product_show', {'id': product.id}) }}" class="btn btn-info">
                 <i class="icon-info-sign"></i> {{ variant.sku|default('SKU') }}
                 </a>
             </td>
             <td>
                 <p>
-                    <a href="{{ path('sylius_backend_product_show', {'id': product.id}) }}">{{ product.name }}</a>
+                    <a href="{{ path('sylius_shop_product_show', {'id': product.id}) }}">{{ product.name }}</a>
                 </p>
                 {% if product.hasOptions %}
                 <ul class="unstyled">
