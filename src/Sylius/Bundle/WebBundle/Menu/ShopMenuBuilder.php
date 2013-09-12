@@ -198,7 +198,7 @@ class ShopMenuBuilder extends MenuBuilder
         ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.payment_methods', $section)));
 
         $child->addChild('taxation_settings', array(
-            'route' => 'sylius_backend_taxation_settings',
+            'route' => 'sylius_shop_taxation_settings',
             'labelAttributes' => array('icon' => 'icon-cog'),
         ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.taxation_settings', $section)));
 
