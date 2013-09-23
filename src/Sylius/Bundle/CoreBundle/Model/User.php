@@ -33,6 +33,8 @@ class User extends BaseUser implements UserInterface
     protected $billingAddress;
     protected $shippingAddress;
     protected $addresses;
+    protected $facebookId;
+    protected $twitterId;    
     
     /**
      * @var boolean
@@ -258,4 +260,51 @@ class User extends BaseUser implements UserInterface
 
         return $this;
     }
+    
+    /**
+     * Set ID of Facebook account attached to the user
+     *
+     * @param string $facebookId
+     * @return User
+     */
+    public function setFacebookId($facebookId) 
+    {
+        $this->facebookId = $facebookId;
+
+        return $this;
+    }
+
+    /**
+     * Get ID of Facebook account attached to the user
+     *
+     * @return string $facebookId
+     */
+    public function getFacebookId() 
+    {
+        return $this->facebookId;
+    }
+    
+    /**
+     * Set ID of Twitter account attached to the user
+     *
+     * @param string $twitterId
+     * @return User
+     */
+    public function setTwitterId($twitterId) 
+    {
+        $this->twitterId = $twitterId;
+
+        return $this;
+    }
+
+    /**
+     * Get ID of Twitter account attached to the user
+     *
+     * @return string $twitterId
+     */
+    public function getTwitterId() 
+    {
+        return $this->twitterId;
+    }
+
 }

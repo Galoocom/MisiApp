@@ -177,7 +177,7 @@ class FrontendMenuBuilder extends MenuBuilder
             ))->setLabel($this->translate('sylius.frontend.menu.main.administration'));
         } elseif (($this->securityContext->isGranted('ROLE_USER'))) {
             $shops = $this->securityContext->getToken()->getUser()->getShops();
-            if (!empty($shops)) {
+            if (!$shops->isEmpty()) {
                 $shop = $shops->current();
                 $menu->addChild('admin', array(
                     'route' => 'sylius_shop_dashboard',

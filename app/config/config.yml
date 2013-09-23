@@ -141,3 +141,30 @@ knp_snappy:
         enabled:    true
         binary:     /usr/bin/wkhtmltoimage
         options:    []
+        
+hwi_oauth:
+    connect: true
+    firewall_name: main
+    fosub: 
+      username_iterations: 30
+      properties:
+        # these properties will be used/redefined later in the custom FOSUBUserProvider service.
+        facebook: facebookId
+        twitter: twitterId      
+    resource_owners:
+        facebook:
+            type:                facebook
+            client_id:           "%misi.oauth.facebook.client_id%"
+            client_secret:       "%misi.oauth.facebook.client_secret%"
+            scope:               "email"   
+            paths:
+              email: email
+              firstname: first_name
+              lastname: last_name
+              locale: locale
+        twitter:
+            type: twitter
+            client_id: %misi.oauth.twitter.client_id%
+            client_secret: %misi.oauth.twitter.client_secret%
+
+

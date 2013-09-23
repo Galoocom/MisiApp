@@ -26,3 +26,8 @@ parameters:
     misi.database_legacy.password: null
 
     misi.base_host: misi.dev
+
+    misi.oauth.facebook.client_id: 1376406385928834
+    misi.oauth.facebook.client_secret: ef05bc96fff90c8613d169c8a36f2bf8
+    misi.oauth.twitter.client_id: gnsPoQFqMqLLzAPvXTgTw
+    misi.oauth.twitter.client_secret: tMKKPqS0SP7wEAhK42f7CSansJhwfskIJhO3y2w4V0

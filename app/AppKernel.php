@@ -71,6 +71,7 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),            
             
             // Galoo bundles
             new Galoo\Bundle\ShopBundle\GalooShopBundle(),

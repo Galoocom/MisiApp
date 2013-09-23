@@ -16,6 +16,8 @@
 </div>
 {% endif %}
 
+{% render url('hwi_oauth_connect') %} 
+
 <form action="{{ path('fos_user_security_check') }}" method="post">
 <fieldset>
     <div class="control-group">

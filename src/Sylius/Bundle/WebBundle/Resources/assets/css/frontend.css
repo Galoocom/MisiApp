@@ -125,3 +125,21 @@ div.footer ul li a {
 div.currency-menu {
     margin-right: 50px;
 }
+
+a.oauth-login {
+    margin-right: 8px;
+}
+
+a.oauth-login span {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+}
+
+a.oauth-login-facebook span {
+    background: url('/assets/img/icon/64/facebook.png') no-repeat;
+}
+
+a.oauth-login-twitter span {
+    background: url('/assets/img/icon/64/twitter.png') no-repeat;
+}

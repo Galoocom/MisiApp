@@ -22,3 +22,21 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /account
+
+hwi_oauth_security:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix: /connect
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix: /login
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix: /connect
+
+facebook_login:
+    pattern: /login/check-facebook
+
+twitter_login:
+    pattern: /login/check-twitter
