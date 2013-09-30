@@ -28,9 +28,11 @@
                 </a>
             </td>
             <td>
+                {#
                 {% if order.payment %}
                     <span class="label label-important">{{ order.payment.balance }}</span>
                 {% endif %}
+                #}
             </td>
             <td>
                 <span class="label label-warning">{{ order.state }}</span>
