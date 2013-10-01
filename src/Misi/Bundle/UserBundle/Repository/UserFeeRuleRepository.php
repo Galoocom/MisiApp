@@ -22,6 +22,7 @@ class UserFeeRuleRepository extends EntityRepository
         $queryBuilder
             ->leftJoin($this->getAlias() . '.taxon', 'taxon')
             ->leftJoin($this->getAlias() . '.user', 'user')
+            ->andWhere($this->getAlias() . '.enabled = 1')
             ->andWhere($queryBuilder->expr()->orX(
                 $queryBuilder->expr()->lte($this->getAlias() . '.dateFrom', ':dateNow'),
                 $queryBuilder->expr()->isNull($this->getAlias() . '.dateFrom')
