@@ -4,10 +4,10 @@
 security:
     providers:
         fos_userbundle:
-            id: misi_user.security.userprovider
+            id: misi.security.userprovider
     encoders:
         FOS\UserBundle\Model\UserInterface: 
-            id: misi_user.security.encoder.sha256_salted_encoder
+            id: misi.security.encoder.sha256_salted_encoder
     firewalls:
         main:
             form_login:
@@ -29,7 +29,7 @@ security:
                 login_path: /connect
                 failure_path: /connect
                 oauth_user_provider:
-                    service: misi_user.security.userprovider               
+                    service: misi.security.userprovider               
             # cant work as atm there is a bug in php < 5.4.11 with session invalidation
             # https://github.com/symfony/symfony/issues/5868
             # logout: true

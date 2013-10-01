@@ -5,20 +5,30 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="misi_user.security.encoder.sha256_salted_encoder.class">Misi\Bundle\UserBundle\Security\Encoder\Sha256SaltedEncoder</parameter>
-        <parameter key="misi_user.eventlistener.user.class">Misi\Bundle\UserBundle\EventListener\UserEventListener</parameter>
-        <parameter key="misi_user.security.userprovider.class">Misi\Bundle\UserBundle\Security\UserProvider</parameter>
+        <parameter key="misi.security.encoder.sha256_salted_encoder.class">Misi\Bundle\UserBundle\Security\Encoder\Sha256SaltedEncoder</parameter>
+        <parameter key="misi.eventlistener.user.class">Misi\Bundle\UserBundle\EventListener\UserEventListener</parameter>
+        <parameter key="misi.eventlistener.product.class">Misi\Bundle\UserBundle\EventListener\ProductEventListener</parameter>
+        <parameter key="misi.security.userprovider.class">Misi\Bundle\UserBundle\Security\UserProvider</parameter>
         <parameter key="fos_user.security.interactive_login_listener.class">Misi\Bundle\UserBundle\EventListener\LastLoginListener</parameter>
+        
+        <parameter key="misi.fee_calculator.product.class">Misi\Bundle\UserBundle\Fee\ProductFeeCalculator</parameter>
     </parameters>
     
     <services>
-        <service id="misi_user.security.encoder.sha256_salted_encoder" class="%misi_user.security.encoder.sha256_salted_encoder.class%">
+        <service id="misi.security.encoder.sha256_salted_encoder" class="%misi.security.encoder.sha256_salted_encoder.class%">
         </service>
-        <service id="misi_user.eventlistener.user" class="%misi_user.eventlistener.user.class%">
-            <tag name="kernel.event_subscriber" alias="misi_user_listener" />
+        
+        <service id="misi.eventlistener.user" class="%misi.eventlistener.user.class%">
+            <tag name="kernel.event_subscriber" alias="misi_listener" />
                 <argument type="service" id="doctrine.orm.entity_manager"/>
         </service>
-        <service id="misi_user.security.userprovider" class="%misi_user.security.userprovider.class%">
+        <service id="misi.eventlistener.product" class="%misi.eventlistener.product.class%">
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+            <argument type="service" id="misi.fee_calculator.product"/>
+            <tag name="kernel.event_subscriber" alias="misi_product_listener" />
+        </service>
+        
+        <service id="misi.security.userprovider" class="%misi.security.userprovider.class%">
             <argument type="service" id="fos_user.user_manager" />
             <argument type="collection">
                 <argument key="facebook">facebookId</argument>
@@ -26,6 +36,15 @@
             </argument>            
             <argument type="service" id="sylius.repository.user" />
         </service>
+        
+        <service id="misi.fee_calculator.product" class="%misi.fee_calculator.product.class%">
+            <argument>%misi.product_fee.enabled%</argument>
+            <argument>%misi.product_fee.amount%</argument>
+            <argument>%misi.product_fee.currency%</argument>
+            <argument type="service" id="sylius.currency_converter" />
+            <argument type="service" id="misi.repository.user_fee_rule" />
+        </service>    
+        
     </services>
     
 </container>

@@ -4,11 +4,11 @@ namespace Misi\Bundle\UserBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 /**
- * This is the class that validates and merges configuration from your app/config files
+ * UserBundle configuration
  *
- * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html#cookbook-bundles-extension-config-class}
  */
 class Configuration implements ConfigurationInterface
 {
@@ -20,10 +20,67 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('misi_user');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->scalarNode('driver')->cannotBeOverwritten()->isRequired()->cannotBeEmpty()->end()
+                ->scalarNode('engine')->defaultValue('twig')->cannotBeEmpty()->end()
+            ->end()
+        ;
+        
+        $this->addClassesSection($rootNode);
+        $this->addProductFeesSection($rootNode);
 
         return $treeBuilder;
     }
+    
+    
+    /**
+     * Adds `classes` section.
+     *
+     * @param ArrayNodeDefinition $node
+     */
+    private function addClassesSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->children()
+                ->arrayNode('classes')
+                    ->isRequired()
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->arrayNode('product_fee')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->scalarNode('model')->isRequired()->cannotBeEmpty()->end()
+                                ->scalarNode('repository')->cannotBeEmpty()->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+    }
+    
+    /**
+     * Adds `product_fee` section.
+     *
+     * @param ArrayNodeDefinition $node
+     */
+    private function addProductFeesSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->children()
+                ->arrayNode('product_fee')
+                    ->isRequired()
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->booleanNode('enabled')->defaultFalse()->end()
+                        ->floatNode('amount')->defaultValue(0)->end()
+                        ->scalarNode('currency')->defaultValue('EUR')->cannotBeEmpty()->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+    }    
+    
 }

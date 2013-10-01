@@ -118,3 +118,16 @@ galoo_shop:
         payment_method:
             model: Galoo\Bundle\ShopBundle\Model\PaymentMethod
             repository: Galoo\Bundle\ShopBundle\Repository\ShopRepository
+            
+misi_user:
+    driver: doctrine/orm
+    product_fee: 
+      enabled: true
+      #amount 5 = 0.05 cents
+      amount: 10 
+      currency: %sylius.currency%
+    classes:
+        product_fee:
+            model: Misi\Bundle\UserBundle\Model\UserFeeProduct
+            repository: Misi\Bundle\UserBundle\Repository\UserFeeProductRepository
+  
