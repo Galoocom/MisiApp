@@ -40,3 +40,7 @@ facebook_login:
 
 twitter_login:
     pattern: /login/check-twitter
+    
+misi_user:
+    resource: @MisiUserBundle/Resources/config/routing/account.yml
+

@@ -1,0 +1,5 @@
+{% if fee.status == constant('Misi\\Bundle\\UserBundle\\Model\\UserFee::STATUS_INIT') %}
+    {{ 'misi.account.fee.status.unpaid'|trans }}
+{% else %}
+    {{ 'misi.account.fee.status.paid'|trans }}
+{% endif %}

@@ -123,8 +123,8 @@ misi_user:
     driver: doctrine/orm
     product_fee: 
       enabled: true
-      #amount 5 = 0.05 cents
-      amount: 10 
+      #amount 20 = 20 cents
+      amount: 20 
       currency: %sylius.currency%
     classes:
         product_fee:

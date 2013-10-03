@@ -350,6 +350,12 @@ class FrontendMenuBuilder extends MenuBuilder
             'labelAttributes' => array('icon' => 'icon-briefcase', 'iconOnly' => false)
         ))->setLabel($this->translate('sylius.frontend.menu.account.orders'));
 
+        $child->addChild('fees', array(
+            'route' => 'misi_account_fee_index',
+            'linkAttributes' => array('title' => $this->translate('misi.frontend.menu.account.fees')),
+            'labelAttributes' => array('icon' => 'icon-money', 'iconOnly' => false)
+        ))->setLabel($this->translate('misi.frontend.menu.account.fees'));
+
         return $menu;
     }
 }

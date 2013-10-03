@@ -1,0 +1,43 @@
+{% import 'SyliusWebBundle:Frontend/Macros:buttons.html.twig' as buttons %}
+{% extends 'SyliusWebBundle:Frontend/Account:layout.html.twig' %}
+
+{% block content %}
+    <h4>{{ 'misi.account.fee.list'|trans }}</h4>
+
+    <div class="row-fluid">
+        {% if total > 0 %}
+            <span>
+                {{ 'misi.account.fee.owe_total'|trans({'%amount%' : total|sylius_money}) }}            
+            </span>
+            <a href="{{ path('misi_account_fee_pay') }}">
+                <button class="btn btn-success"><i class="icon-shopping-cart icon-white"></i> {{ 'misi.account.fee.pay_now'|trans }}</button>
+            </a>
+            <hr />
+        {% endif %}
+        {% if fees is not empty %}
+        <table id="fees" class="table">
+            <thead>
+                <tr>
+                    <td>{{ 'misi.account.fee.product'|trans }}</td>
+                    <td>{{ 'misi.account.fee.created_at'|trans }}</td>
+                    <td>{{ 'misi.account.fee.fee'|trans }}</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fee in fees %}
+                    <tr class="fee" id="fee-{{ fee.id }}">
+                        <td><img  src="{{ fee.product.image ? fee.product.image.path|imagine_filter('sylius_50x40') : 'http://placehold.it/50x40' }}" alt="{{ fee.product.name }}" />{{ fee.product.name }}</td>
+                        <td>{{ fee.createdAt|date }}</td>
+                        <td>
+                            {{ fee.amount|sylius_money }}
+                            {% include "MisiUserBundle:Fee:_state.html.twig" %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>{{ 'misi.account.fee.empty'|trans }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

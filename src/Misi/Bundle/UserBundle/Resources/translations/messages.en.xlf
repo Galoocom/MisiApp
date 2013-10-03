@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="fde23634899df0306d3047a62c477f7e" resname="misi.account.fee.list">
+        <source>misi.account.fee.list</source>
+        <target>My Fees</target>
+      </trans-unit>
+      <trans-unit id="4157592ec5970e9c588959280ff5df0a" resname="misi.account.fee.created_at">
+        <source>misi.account.fee.created_at</source>
+        <target>Created at</target>
+      </trans-unit>
+      <trans-unit id="877c71e8142a74d5cd36c11dcc4ca0db" resname="misi.account.fee.product">
+        <source>misi.account.fee.product</source>
+        <target>Product</target>
+      </trans-unit>
+      <trans-unit id="20ac4b53b6526cf78369976c97ed62c3" resname="misi.account.fee.fee">
+        <source>misi.account.fee.fee</source>
+        <target>Fee</target>
+      </trans-unit>
+      <trans-unit id="082cc9284c24eec6026ad91c33025ac1" resname="misi.account.fee.empty">
+        <source>misi.account.fee.empty</source>
+        <target>There are no fees for this account</target>
+      </trans-unit>
+      <trans-unit id="70a34f47e66dc281e36b8a3c89bd9228" resname="misi.account.fee.owe_total">
+        <source>misi.account.fee.owe_total</source>
+        <target>You currenctly owe %amount%</target>
+      </trans-unit>
+      <trans-unit id="7b147e14e09c0c61f140ab496d86335b" resname="misi.account.fee.status.paid">
+        <source>misi.account.fee.status.paid</source>
+        <target>paid</target>
+      </trans-unit>
+      <trans-unit id="1b68f6d6256ce3eb468215f8748992b5" resname="misi.account.fee.status.unpaid">
+        <source>misi.account.fee.status.unpaid</source>
+        <target>unpaid</target>
+      </trans-unit>
+      <trans-unit id="2c83ef082f0306126308bb8f6ab03fd2" resname="misi.account.fee.pay_now">
+        <source>misi.account.fee.pay_now</source>
+        <target>Pay now</target>
+      </trans-unit>
+      <trans-unit id="149979e7bcc558db580b4e726f3ea4aa" resname="misi.frontend.menu.account.fees">
+        <source>misi.frontend.menu.account.fees</source>
+        <target>My fees</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

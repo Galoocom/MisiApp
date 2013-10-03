@@ -1,0 +1,8 @@
+misi_account_fee_index:
+    pattern: /fees
+    methods: [GET]
+    defaults: { _controller: MisiUserBundle:Fee:index }
+misi_account_fee_pay:
+    pattern: /fees/pay
+    methods: [GET]
+    defaults: { _controller: MisiUserBundle:Fee:pay }
