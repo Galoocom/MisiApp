@@ -67,6 +67,7 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle($this),
             new FOS\RestBundle\FOSRestBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
@@ -79,6 +80,7 @@ class AppKernel extends Kernel
             // Misi bundles
             new Misi\Bundle\MigrationBundle\MisiMigrationBundle(),
             new Misi\Bundle\UserBundle\MisiUserBundle(),
+            new Misi\Bundle\MessageBundle\MisiMessageBundle(),
             new Misi\Bundle\WebBundle\MisiWebBundle(),
             
         );

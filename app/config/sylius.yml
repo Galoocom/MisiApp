@@ -131,3 +131,5 @@ misi_user:
             model: Misi\Bundle\UserBundle\Model\UserFeeProduct
             repository: Misi\Bundle\UserBundle\Repository\UserFeeProductRepository
   
+misi_message:
+    driver: doctrine/orm

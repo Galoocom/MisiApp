@@ -81,6 +81,11 @@ fos_user:
         form:
             type: sylius_user_registration
 
+fos_message:
+    db_driver: orm
+    thread_class: Misi\Bundle\MessageBundle\Model\Thread
+    message_class: Misi\Bundle\MessageBundle\Model\Message
+  
 swiftmailer:
     transport: %sylius.mailer.transport%
     host:      %sylius.mailer.host%

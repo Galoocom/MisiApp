@@ -15,13 +15,14 @@ use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
+use FOS\MessageBundle\Model\ParticipantInterface;
 
 /**
  * User model.
  *
  * @author Paweł Jędrzjewski <pjedrzejewski@diweb.pl>
  */
-class User extends BaseUser implements UserInterface
+class User extends BaseUser implements UserInterface, ParticipantInterface
 {
     protected $firstName;
     protected $lastName;

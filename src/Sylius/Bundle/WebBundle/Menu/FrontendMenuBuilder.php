@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\Intl\Intl;
-
+use FOS\MessageBundle\Provider\Provider as MessageProvider;
 /**
  * Frontend menu builder.
  *
@@ -57,6 +57,13 @@ class FrontendMenuBuilder extends MenuBuilder
     protected $moneyExtension;
 
     /**
+     * Money extension.
+     *
+     * @var MessageProvider
+     */
+    protected $messageProvider;
+
+    /**
      * Request.
      *
      * @var Request
@@ -73,6 +80,7 @@ class FrontendMenuBuilder extends MenuBuilder
      * @param RepositoryInterface      $taxonomyRepository
      * @param CartProviderInterface    $cartProvider
      * @param SyliusMoneyExtension     $moneyExtension
+     * @param Provider                 $messageProvider
      */
     public function __construct(
         FactoryInterface         $factory,
@@ -81,7 +89,8 @@ class FrontendMenuBuilder extends MenuBuilder
         RepositoryInterface      $exchangeRateRepository,
         RepositoryInterface      $taxonomyRepository,
         CartProviderInterface    $cartProvider,
-        SyliusMoneyExtension     $moneyExtension
+        SyliusMoneyExtension     $moneyExtension,
+        MessageProvider          $messageProvider
     )
     {
         parent::__construct($factory, $securityContext, $translator);
@@ -90,6 +99,7 @@ class FrontendMenuBuilder extends MenuBuilder
         $this->taxonomyRepository = $taxonomyRepository;
         $this->cartProvider = $cartProvider;
         $this->moneyExtension = $moneyExtension;
+        $this->messageProvider = $messageProvider;
     }
 
     /**
@@ -135,6 +145,16 @@ class FrontendMenuBuilder extends MenuBuilder
 
         if ($this->securityContext->isGranted('ROLE_USER')) {
 
+            $menu->addChild('message', array(
+                'route' => 'fos_message_inbox',
+                'linkAttributes' => array('title' => $this->translate('misi.message.menu.main.messages', array(
+                    '%num%' => $this->messageProvider->getNbUnreadMessages()
+                ))),
+                'labelAttributes' => array('icon' => 'icon-envelope-alt icon-large')
+            ))->setLabel($this->translate('misi.message.menu.main.messages', array(
+                '%num%' => $this->messageProvider->getNbUnreadMessages()
+            )));
+            
             $route = $this->request === null ? '' : $this->request->get('_route');
 
             if (1 === preg_match('/^(sylius_account)|(fos_user)/', $route)) {
@@ -344,6 +364,16 @@ class FrontendMenuBuilder extends MenuBuilder
             'labelAttributes' => array('icon' => 'icon-lock', 'iconOnly' => false)
         ))->setLabel($this->translate('sylius.frontend.menu.account.password'));
 
+        $child->addChild('message', array(
+            'route' => 'fos_message_inbox',
+            'linkAttributes' => array('title' => $this->translate('misi.frontend.menu.account.messages', array(
+                '%num%' => $this->messageProvider->getNbUnreadMessages()
+            ))),
+            'labelAttributes' => array('icon' => 'icon-envelope-alt')
+        ))->setLabel($this->translate('misi.frontend.menu.account.messages', array(
+            '%num%' => $this->messageProvider->getNbUnreadMessages()
+        )));
+            
         $child->addChild('orders', array(
             'route' => 'sylius_account_order_index',
             'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.account.orders')),

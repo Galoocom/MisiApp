@@ -28,6 +28,7 @@
         "friendsofsymfony/rest-bundle":         "0.13.*",
         "friendsofsymfony/user-bundle":         "2.0.*@dev",
         "friendsofsymfony/advanced-encoder-bundle": "dev-master",
+        "friendsofsymfony/message-bundle":      "dev-master",
         "hwi/oauth-bundle":                     "dev-master",
         "knplabs/knp-gaufrette-bundle":         "0.2.*",
         "fzaninotto/faker":                     "1.2.*",

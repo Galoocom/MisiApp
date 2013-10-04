@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Misi\Bundle\MessageBundle\Model\Thread" table="misi_message_thread">
+
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+
+        <many-to-one field="createdBy" target-entity="Sylius\Bundle\CoreBundle\Model\User" />
+
+        <one-to-many field="messages" target-entity="Misi\Bundle\MessageBundle\Model\Message" mapped-by="thread" />
+
+        <one-to-many field="metadata" target-entity="Misi\Bundle\MessageBundle\Model\ThreadMetadata" mapped-by="thread">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
+
+    </entity>
+
+</doctrine-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="misi.model.message.class">Misi\Bundle\MessageBundle\Model\Message</parameter>
+        <parameter key="misi.model.message_metadata.class">Misi\Bundle\MessageBundle\Model\MessageMetaData</parameter>
+        <parameter key="misi.model.thread.class">Misi\Bundle\MessageBundle\Model\Thread</parameter>
+        <parameter key="misi.model.thread_metadata.class">Misi\Bundle\MessageBundle\Model\ThreadMetadata</parameter>
+    </parameters>
+    
+
+</container>

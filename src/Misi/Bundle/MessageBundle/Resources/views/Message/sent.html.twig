@@ -1,0 +1,9 @@
+{% extends 'SyliusWebBundle:Frontend/Account:layout.html.twig' %}
+
+{% block content %}
+
+<h2>{% trans from 'FOSMessageBundle' %}messenger{% endtrans %}</h2>
+
+{% include 'FOSMessageBundle:Message:threads_list.html.twig' with {'threads': threads} %}
+
+{% endblock %}

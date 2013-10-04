@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="4e7abffd245bf1a7cae68fb4fd5b5ce4" resname="messenger">
+        <source>messenger</source>
+        <target>Messenger</target>
+      </trans-unit>
+      <trans-unit id="af1cd994dfcb9286c394d142687ff5a0" resname="inbox">
+        <source>inbox</source>
+        <target>Inbox</target>
+      </trans-unit>
+      <trans-unit id="789183b7e98646c11d5f0544c8f3c4c9" resname="sent">
+        <source>sent</source>
+        <target>Sent</target>
+      </trans-unit>
+      <trans-unit id="b5e3374e43f6544852f7751dfc529100" resname="subject">
+        <source>subject</source>
+        <target>Subject</target>
+      </trans-unit>
+      <trans-unit id="c49a532a71393b6b2a5584842cae37be" resname="starter">
+        <source>starter</source>
+        <target>Starter</target>
+      </trans-unit>
+      <trans-unit id="4e30b6d6aa33492da947b4c6ab31c7ca" resname="startdate">
+        <source>startdate</source>
+        <target>Date</target>
+      </trans-unit>
+      <trans-unit id="de70938849b75d3db63bba421c93e018" resname="messages">
+        <source>messages</source>
+        <target>Messages</target>
+      </trans-unit>
+      <trans-unit id="12687c25c77789761d2debad7e610ffb" resname="last_message">
+        <source>last_message</source>
+        <target>Last message</target>
+      </trans-unit>
+      <trans-unit id="ebb67a4271abe715344471b0f16321f6" resname="actions">
+        <source>actions</source>
+        <target>Actions</target>
+      </trans-unit>
+      <trans-unit id="22af645d1859cb5ca6da0c484f1f37ea" resname="new">
+        <source>new</source>
+        <target>New</target>
+      </trans-unit>
+      <trans-unit id="2fa22e84ec153cf607b09a62d0cf3809" resname="goto_last">
+        <source>goto_last</source>
+        <target>Go to last message</target>
+      </trans-unit>
+      <trans-unit id="ed2b5c0139cec8ad2873829dc1117d50" resname="on">
+        <source>on</source>
+        <target>On %date%</target>
+      </trans-unit>
+      <trans-unit id="df3f079de6961496f0460dcfdbf9bca3" resname="by">
+        <source>by</source>
+        <target>By %sender%</target>
+      </trans-unit>
+      <trans-unit id="099af53f601532dbd31e0ea99ffdeb64" resname="delete">
+        <source>delete</source>
+        <target>Delete</target>
+      </trans-unit>
+      <trans-unit id="7acae872c21dc7846a96f1554b123921" resname="no_thread">
+        <source>no_thread</source>
+        <target>There is no thread to show</target>
+      </trans-unit>
+      <trans-unit id="e84afaab83ecb301b3d97ce4174d2773" resname="reply">
+        <source>reply</source>
+        <target>Reply</target>
+      </trans-unit>
+      <trans-unit id="8682fdce61b7afe755b412426fa9136d" resname="send_new">
+        <source>send_new</source>
+        <target>Send a new message</target>
+      </trans-unit>
+      <trans-unit id="06a943c59f33a34bb5924aaf72cd2995" resname="search">
+        <source>search</source>
+        <target>Search</target>
+      </trans-unit>
+      <trans-unit id="ac3a12c785026fdb69ac431ee804d393" resname="threads_found">
+        <source>threads_found</source>
+        <target>%num% thread found with | %num% threads found with</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
