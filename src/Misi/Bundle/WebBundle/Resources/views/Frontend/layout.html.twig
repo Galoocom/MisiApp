@@ -24,6 +24,7 @@
             '//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap.no-icons.min.css'
             '//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css'
             '@SyliusWebBundle/Resources/assets/css/frontend.css'
+            '@MisiWebBundle/Resources/assets/css/misi-frontend.css'
             '@SyliusWebBundle/Resources/assets/css/bootstrap-image-gallery.css'
         %}
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
@@ -31,16 +32,78 @@
         {% endblock %}
     </head>
     <body>
+    <div id="main-layout">
         <div class="container">
-        {% block header %}
-            <div class="masthead pull-right">
-                {{ knp_menu_render('sylius.frontend.main', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }}
-            </div>
-            <div class="currency-menu masthead pull-right">
-                {{ knp_menu_render('sylius.frontend.currency', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }}
-            </div>
-            <h1 class="logo"><a href="{{ path('sylius_homepage') }}" title="MISI"><span>MISI</span></a></h1>
-        {% endblock %}
+            {% block header %}
+
+                <div class="top-bar navbar navbar-inverse ">
+                    <div class="share-container">
+                        <div class="social social-pinterest">
+                            <a id="pinfollow" data-pin-do="buttonFollow" href="http://pinterest.com/misicrafter/" >Misi</a>
+                            <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+                        </div>
+                        <div class="social social-facebook">
+                            <div class="fb-like" data-href="http://www.facebook.com/MakeItSellIt" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+                            <div id="fb-root"></div>
+                            <script>(function(d, s, id) {
+                                    var js, fjs = d.getElementsByTagName(s)[0];
+                                    if (d.getElementById(id)) return;
+                                    js = d.createElement(s); js.id = id;
+                                    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=630192150328640";
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));</script>
+                        </div>
+                        <div class="social social-twitter">
+                            <a href="https://twitter.com/misi_uk" class="twitter-follow-button" data-show-count="true">Follow @misi_uk</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        </div>
+                        <div class="social social-gplus">
+                            <div class="g-plusone" data-href="http://www.misi.co.uk" data-size="medium" data-annotation="bubble" data-width="90"></div>
+                            <script type="text/javascript">
+                                (function() {
+                                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                    po.src = 'https://apis.google.com/js/plusone.js';
+                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                })();
+                            </script>
+                        </div>
+                    </div>
+
+                    <div class="masthead pull-right top-menu">
+                        {{ knp_menu_render('sylius.frontend.main', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }}
+                    </div>
+                    <div class="currency-menu masthead pull-right">
+                        {{ knp_menu_render('sylius.frontend.currency', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }}
+                    </div>
+                </div>
+                <div class="row-fluid">
+
+                    <h1 class="main-logo span2"><a href="{{ path('sylius_homepage') }}" title=" MISI - Buy and Sell Unique Handmade Gifts "><span><img src="{{ asset('/assets/img/misi-logo.png') }}" alt="alttex" /></span></a></h1>
+                    <div class="span7 search">
+                        {#This should be replaced with search form ???#}
+                       <span>Search Handmade:</span>
+                        <span><input type="text" placeholder=""></span>
+                        <span>
+                           <select name="search" class="selectbox" tabindex="2">
+                               <option value="0" >All</option>
+                               <option value="1" >Handmade Gifts: Tags, Titles</option>
+                               <option value="2" >Craft Supplies: Tags, Titles</option>
+                               <option value="3" >Vintage: Tags, Titles</option>
+                               <option value="4" >All Items: Tags, Titles</option>
+                               <option value="5" >By Location: Town, county, country</option>
+                               <option value="6" >By Seller: Username, Store Name</option>
+                           </select>
+                        </span>
+                        <span><button class="btn btn-mini" type="button">Go</button></span>
+                    </div>
+                    <div class="span3 float-right header-link-images">
+                        <img src="{{ asset('/assets/img/whatsnew.png') }}" alt="alttex" />
+                        <img src="{{ asset('/assets/img/Giftguide_button.png') }}" alt="alttex" />
+                        <img src="{{ asset('/assets/img/sale_circle.png') }}" alt="alttex" />
+                    </div>
+                </div>
+
+            {% endblock %}
 
         {% block flashes %}
             {% for name, flashes in app.session.flashbag.all if name in ['success', 'error', 'fos_user_success'] %}
@@ -57,14 +120,13 @@
         <hr>
         <div class="row-fluid">
             <div class="row-fluid">
-                <div class="span3" id="sidebar_left">
+                <div class="span12 categories" id="sidebar_top">
                     {% block sidebar %}
-                    <h4>{{ 'sylius.shop_by'|trans }}</h4>
                     {{ knp_menu_render('sylius.frontend.taxonomies', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }}
-                    {{ render(url('sylius_partial_product_latest', {'limit': 5, 'template': 'SyliusWebBundle:Frontend/Product:latestSidebar.html.twig'})) }}
+                   {# {{ render(url('sylius_partial_product_latest', {'limit': 5, 'template': 'SyliusWebBundle:Frontend/Product:latestSidebar.html.twig'})) }}#}
                     {% endblock %}
                 </div>
-                <div class="span9">
+                <div class="span12">
                 {% block content %}
                 {% endblock %}
                 </div>
@@ -76,16 +138,25 @@
         {% block gallery %}
         {% include 'SyliusWebBundle::gallery.html.twig' %}
         {% endblock %}
-
+        </div> {#constainer close#}
         {% block footer %}
-            <div class="footer">
-                <p class="muted">
-                    &copy; Misi, 2013 - {{ 'now'|date('Y') }}.
-                </p>
+            <div class="container-fluid">
+            <div class="footer footer-top row-fluid">
+
                 {{ knp_menu_render('sylius.frontend.social', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }}
+
             </div>
+            <div class="footer-bottom row-fluid">
+                <p>Copyright 2008 - {{ 'now'|date('Y') }} of MISI, Galoocom Services </p>
+                <br>
+                <p>Your place to buy and sell all things handmade handmade gifts,
+                    Handmade Jewellery, Handmade Quilts, Unique Clothing, Unique Baby Gifts, Vintage Style Gifts, Wedding Gifts, Handmade Alternative Easter Gifts,
+                    Craft gifts, Crafters forum Plus loads more Crafted gift ideas</p>
+            </div>
+            </div>
+    </div>
         {% endblock %}
-        </div>
+
 
         {# javascripts... #}
         {% block javascripts %}
