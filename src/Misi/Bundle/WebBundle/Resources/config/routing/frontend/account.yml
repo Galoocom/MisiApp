@@ -1,0 +1,57 @@
+sylius_account_homepage:
+    pattern: /
+    defaults: { _controller: FOSUserBundle:Profile:show }
+
+sylius_account_order_index:
+    pattern: /orders
+    methods: [GET]
+    defaults: { _controller: SyliusWebBundle:Frontend/Account/Order:indexOrder }
+
+sylius_account_order_show:
+    pattern: /order/{number}
+    methods: [GET]
+    defaults: { _controller: SyliusWebBundle:Frontend/Account/Order:showOrder }
+
+sylius_account_order_invoice:
+    pattern: /invoice/{number}
+    methods:  [GET]
+    defaults: { _controller: SyliusWebBundle:Frontend/Account/Order:renderInvoice }
+    
+sylius_account_shop_index:
+    pattern: /shops
+    defaults:  
+        _controller: galoo.controller.shop.shop:indexByUserAction 
+        _sylius:
+            template: GalooShopBundle:Shop:index.html.twig
+    
+sylius_account_shop_update:
+    pattern: /shop/{id}/edit
+    methods: [GET, PUT, POST]
+    defaults: { _controller: galoo.controller.shop.shop:indexAction }
+    defaults:
+        _controller: galoo.controller.shop.shop:updateAction
+        _sylius:
+            template: GalooShopBundle:Shop:update.html.twig
+            redirect: sylius_account_shop_show
+
+sylius_account_shop_show:
+    pattern: /shop/{id}
+    methods: [GET]
+    defaults: { _controller: galoo.controller.shop.shop:indexAction }
+    defaults:
+        _controller: galoo.controller.shop.shop:showAction
+        _sylius:
+            template: GalooShopBundle:Shop:show.html.twig
+            redirect: sylius_account_shop_show
+
+sylius_account_shop_delete:
+    pattern: /shop/{id}/delete
+    defaults:
+        _controller: galoo.controller.shop.shop:deleteAction
+
+sylius_account_shop_create:
+    pattern: /shop/create
+    defaults:
+        _controller: galoo.controller.shop.shop:createAction
+
+
