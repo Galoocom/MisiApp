@@ -1,0 +1,12 @@
+{% import 'SyliusWebBundle:Frontend/Macros:buttons.html.twig' as buttons %}
+
+<div class="row-fluid">
+    <div class="span12">
+        <a href="{{ path('sylius_shop_frontpage') }}" class="btn btn-link"><h3>{{ shop.name }}</h3></a>
+        <p>{{ shop.description|default('sylius.product.no_description')|trans|raw }}</p>
+    </div>
+</div>
+
+{{ render(url('misi_partial_shop_profile', {'subdomain': shop.name, 'limit': 9, 'template': 'MisiWebBundle:Frontend/Shop/Shop:profile.html.twig'})) }}
+
+{{ render(url('misi_partial_shop_frontpage_products', {'limit': 4, 'template': 'GalooShopBundle:Product:latest.html.twig'})) }}
