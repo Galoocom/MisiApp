@@ -38,7 +38,7 @@ class UserEventListener implements EventSubscriberInterface
         $shop = new Shop();
         
         $shop->setUser($user);
-        $shop->setName(strtolower($user->getUsername()));
+        $shop->setSubdomain(strtolower($user->getUsername()));
         $shop->setTitle($user->getUsername() . '`s shop');
         $shop->setDescription('Welcome to my Misi shop');
         $shop->setEnabled(true);

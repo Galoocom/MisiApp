@@ -24,7 +24,7 @@ class LoadShopData extends DataFixture
             $shop = new Shop();
 
             $shop->setUser($user);
-            $shop->setName(strtolower($user->getFirstname()));
+            $shop->setSubdomain(strtolower($user->getFirstname()));
             $shop->setTitle($user->getFirstname() . '`s shop');
             $shop->setDescription($this->faker->sentence);
             $shop->setEnabled(true);

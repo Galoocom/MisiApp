@@ -5,7 +5,8 @@
 {% for favoriteShop in shops %}
     {% set shop = favoriteShop.getShop() %}
     <h4>{{ shop.title }}</h4>
-    {{ render(url('misi_partial_shop_frontpage_products', {'limit': 4, 'template': 'GalooShopBundle:Product:latest.html.twig', 'subdomain': shop.name})) }}
+    <h4>{{ shop.subdomain }}</h4>
+    {{ render(url('misi_partial_shop_frontpage_products', {'limit': 4, 'template': 'GalooShopBundle:Product:latest.html.twig', 'subdomain': shop.subdomain})) }}
 {% if not loop.last %}<hr>{% endif %}
 {% else %}
 {{ alerts.info('misi.favorite.no_results'|trans) }}

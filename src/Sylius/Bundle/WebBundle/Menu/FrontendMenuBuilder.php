@@ -201,7 +201,7 @@ class FrontendMenuBuilder extends MenuBuilder
                 $shop = $shops->current();
                 $menu->addChild('admin', array(
                     'route' => 'sylius_shop_dashboard',
-                    'routeParameters' => array('subdomain' => $shop->getName()),
+                    'routeParameters' => array('subdomain' => $shop->getSubdomain()),
                     'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.administration')),
                     'labelAttributes' => array('icon' => 'icon-briefcase icon-large', 'iconOnly' => false)
                 ))->setLabel($this->translate('sylius.frontend.menu.main.administration'));
