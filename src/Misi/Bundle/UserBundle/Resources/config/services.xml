@@ -12,6 +12,10 @@
         <parameter key="fos_user.security.interactive_login_listener.class">Misi\Bundle\UserBundle\EventListener\LastLoginListener</parameter>
         
         <parameter key="misi.fee_calculator.product.class">Misi\Bundle\UserBundle\Fee\ProductFeeCalculator</parameter>
+        
+        <parameter key="misi.controller.favorite_shop.class">Misi\Bundle\UserBundle\Controller\FavoriteShopController</parameter>
+        <parameter key="misi.controller.wish_product.class">Misi\Bundle\UserBundle\Controller\WishProductController</parameter>
+        
     </parameters>
     
     <services>
@@ -44,6 +48,24 @@
             <argument type="service" id="sylius.currency_converter" />
             <argument type="service" id="misi.repository.user_fee_rule" />
         </service>    
+        
+        <service id="misi.controller.favorite_shop" class="%misi.controller.favorite_shop.class%">
+            <argument>misi</argument>
+            <argument>favorite_shop</argument>
+            <argument>MisiUserBundle:FavoriteShop</argument>
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>        
+        
+        <service id="misi.controller.wish_product" class="%misi.controller.wish_product.class%">
+            <argument>misi</argument>
+            <argument>wish_product</argument>
+            <argument>MisiUserBundle:WishProduct</argument>
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>        
         
     </services>
     

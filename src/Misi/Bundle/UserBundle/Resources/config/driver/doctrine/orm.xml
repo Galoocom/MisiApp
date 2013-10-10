@@ -12,6 +12,10 @@
         <parameter key="misi.repository.user_fee.class">Misi\Bundle\UserBundle\Repository\UserFeeRepository</parameter>
         <parameter key="misi.model.user_fee_product.class">Misi\Bundle\UserBundle\Model\UserFeeProduct</parameter>
         <parameter key="misi.repository.user_fee_product.class">Misi\Bundle\UserBundle\Repository\UserFeeProductRepository</parameter>
+        <parameter key="misi.model.favorite_shop.class">Misi\Bundle\UserBundle\Model\FavoriteShop</parameter>
+        <parameter key="misi.repository.favorite_shop.class">Misi\Bundle\UserBundle\Repository\FavoriteShopRepository</parameter>
+        <parameter key="misi.model.wish_product.class">Misi\Bundle\UserBundle\Model\WishProduct</parameter>
+        <parameter key="misi.repository.wish_product.class">Misi\Bundle\UserBundle\Repository\WishProductRepository</parameter>
     </parameters>
     
     <services>
@@ -72,6 +76,36 @@
                         public="false"
                 >
                     <argument>%misi.model.user_fee_product.class%</argument>
+                </service>
+            </argument>
+        </service>
+        
+        <service id="misi.manager.favorite_shop" alias="doctrine.orm.entity_manager" />
+        <service id="misi.repository.favorite_shop" class="%misi.repository.favorite_shop.class%">
+            <argument type="service" id="misi.manager.favorite_shop" />
+            <argument type="service">
+                <service
+                        factory-service="misi.manager.favorite_shop"
+                        factory-method="getClassMetadata"
+                        class="Doctrine\ORM\Mapping\ClassMetadata"
+                        public="false"
+                >
+                    <argument>%misi.model.favorite_shop.class%</argument>
+                </service>
+            </argument>
+        </service>
+        
+        <service id="misi.manager.wish_product" alias="doctrine.orm.entity_manager" />
+        <service id="misi.repository.wish_product" class="%misi.repository.wish_product.class%">
+            <argument type="service" id="misi.manager.wish_product" />
+            <argument type="service">
+                <service
+                        factory-service="misi.manager.wish_product"
+                        factory-method="getClassMetadata"
+                        class="Doctrine\ORM\Mapping\ClassMetadata"
+                        public="false"
+                >
+                    <argument>%misi.model.wish_product.class%</argument>
                 </service>
             </argument>
         </service>

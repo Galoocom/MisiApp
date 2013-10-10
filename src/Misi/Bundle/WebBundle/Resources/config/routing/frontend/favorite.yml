@@ -1,0 +1,19 @@
+misi_user_favorite_index:
+    pattern: /
+    methods: [GET]
+    defaults: 
+        _controller: misi.controller.favorite_shop:indexByUserAction
+        _sylius:
+            template: MisiWebBundle:Frontend/FavoriteShop:index.html.twig
+        
+misi_user_favorite_add:
+    pattern: /add
+    methods: [GET, POST]
+    defaults: 
+        _controller: misi.controller.favorite_shop:addShopAction
+        
+misi_user_favorite_remove:
+    pattern: /remove
+    methods: [DELETE]
+    defaults: 
+        _controller: misi.controller.favorite_shop:removeShopAction

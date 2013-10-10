@@ -1,0 +1,18 @@
+{% import 'SyliusWebBundle:Frontend/Macros:buttons.html.twig' as buttons %}
+{% from 'SyliusWebBundle:Frontend/Macros:misc.html.twig' import pagination %}
+{% from 'MisiWebBundle:Frontend/FavoriteShop:macros.html.twig' import list %}
+{% extends 'SyliusWebBundle:Frontend/Account:layout.html.twig' %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>{{ 'misi.favorite.shop.list'|trans }}</h1>
+    </div>
+
+
+    {{ pagination(shops) }}
+    {{ list(shops) }}
+    {{ pagination(shops) }}
+
+
+{% endblock %}

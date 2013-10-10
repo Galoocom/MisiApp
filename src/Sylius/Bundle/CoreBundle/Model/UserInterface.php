@@ -102,4 +102,27 @@ interface UserInterface extends BaseUserInterface, TimestampableInterface
      * @return Boolean
      */
     public function hasAddress(AddressInterface $address);
+    
+    /**
+     * Get shops.
+     *
+     * @return ArrayCollection
+     */
+    public function getShops();
+
+    /**
+     * Get favorited shops.
+     *
+     * @return ArrayCollection
+     */
+    public function getFavoriteShops();
+
+    /**
+     * Get wished products.
+     *
+     * @return ArrayCollection
+     */
+    public function getWishlist();
+
+    
 }

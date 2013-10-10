@@ -32,6 +32,16 @@
                 <cascade-all />
             </cascade>
         </one-to-many>
+        <one-to-many field="wishlist" target-entity="Misi\Bundle\UserBundle\Model\WishProductInterface" mapped-by="user">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
+        <one-to-many field="favoriteShops" target-entity="Misi\Bundle\UserBundle\Model\FavoriteShopInterface" mapped-by="user">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
         <field name="legacyPassword" column="is_legacy_password" type="boolean" nullable="true" />
         <field name="facebookId" column="facebook_id" type="string" nullable="true" />
         <field name="twitterId" column="twitter_id" type="string" nullable="true" />        

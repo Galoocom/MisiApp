@@ -1,0 +1,20 @@
+misi_user_wishlist_index:
+    pattern: /
+    methods: [GET]
+    defaults: 
+        _controller: misi.controller.wish_product:indexByUserAction
+        _sylius:
+            template: MisiWebBundle:Frontend/WishProduct:index.html.twig
+        
+misi_user_wishlist_add:
+    pattern: /add
+    methods: [GET, POST]
+    defaults: 
+        _controller: misi.controller.wish_product:addProductAction
+        
+misi_user_wishlist_remove:
+    pattern: /remove
+    methods: [DELETE]
+    defaults: 
+        _controller: misi.controller.wish_product:removeProductAction
+

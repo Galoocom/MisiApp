@@ -1,0 +1,14 @@
+{% macro list(shops) %}
+
+{% import 'SyliusWebBundle:Backend/Macros:alerts.html.twig' as alerts %}
+
+{% for favoriteShop in shops %}
+    {% set shop = favoriteShop.getShop() %}
+    <h4>{{ shop.title }}</h4>
+    {{ render(url('misi_partial_shop_frontpage_products', {'limit': 4, 'template': 'GalooShopBundle:Product:latest.html.twig', 'subdomain': shop.name})) }}
+{% if not loop.last %}<hr>{% endif %}
+{% else %}
+{{ alerts.info('misi.favorite.no_results'|trans) }}
+{% endfor %}
+
+{% endmacro %}

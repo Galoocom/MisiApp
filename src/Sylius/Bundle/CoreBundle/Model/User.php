@@ -36,6 +36,8 @@ class User extends BaseUser implements UserInterface, ParticipantInterface
     protected $addresses;
     protected $facebookId;
     protected $twitterId;    
+    protected $wishlist;    
+    protected $favoriteShops;    
     
     /**
      * @var boolean
@@ -50,6 +52,8 @@ class User extends BaseUser implements UserInterface, ParticipantInterface
         $this->shops          = new ArrayCollection();
         $this->addresses      = new ArrayCollection();
         $this->legacyPassword = false;
+        $this->wishlist       = new ArrayCollection();
+        $this->favoriteShops  = new ArrayCollection();
 
         parent::__construct();
     }
@@ -82,6 +86,26 @@ class User extends BaseUser implements UserInterface, ParticipantInterface
     public function getShops()
     {
         return $this->shops;
+    }
+
+    /**
+     * Get shops
+     *
+     * @return ArrayCollection
+     */
+    public function getFavoriteShops()
+    {
+        return $this->favoriteShops;
+    }
+
+    /**
+     * Get wishlist
+     *
+     * @return ArrayCollection
+     */
+    public function getWishlist()
+    {
+        return $this->wishlist;
     }
 
     /**
