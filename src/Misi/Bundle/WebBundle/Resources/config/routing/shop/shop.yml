@@ -1,15 +1,8 @@
 sylius_shop_frontpage:
     pattern: /
-    defaults: { _controller: galoo.controller.shop.homepage:indexAction }
-    
-sylius_shop_partial_frontpage_products:
-    pattern: /products
-    defaults:  
-        _controller: galoo.controller.shop.product:indexAction 
-        _sylius:
-            paginate: 4
-            arguments: [$limit]
-            template: $template
+    defaults: 
+        _controller: MisiWebBundle:Frontend/Shop/Homepage:index
+          
     
 sylius_shop_dashboard:
     pattern: /admin/dashboard

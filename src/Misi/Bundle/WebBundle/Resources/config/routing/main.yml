@@ -1,0 +1,16 @@
+misi_shop:
+    resource: "@MisiWebBundle/Resources/config/routing/shop/main.yml"
+
+_main_sylius_web:
+    resource: "@SyliusWebBundle/Resources/config/routing/main.yml"
+
+misi_user_favorite:
+    resource: "@MisiWebBundle/Resources/config/routing/frontend/favorite.yml"
+    prefix: /favorite
+    
+misi_user_wishlist:
+    resource: "@MisiWebBundle/Resources/config/routing/frontend/wishlist.yml"
+    prefix: /wishlist
+    
+misi_partial_shop:
+    resource: "@MisiWebBundle/Resources/config/routing/partial/shop.yml"

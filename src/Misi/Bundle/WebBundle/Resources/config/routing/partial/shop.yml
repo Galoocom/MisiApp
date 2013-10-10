@@ -1,0 +1,17 @@
+misi_partial_shop_profile:
+    pattern: /shop/profile
+    defaults:
+        _controller: galoo.controller.shop.shop:profileAction
+        _sylius:
+            template: $template
+            
+misi_partial_shop_frontpage_products:
+    pattern: /products
+    defaults:  
+        _controller: galoo.controller.shop.product:indexAction 
+        _sylius:
+            paginate: 4
+            arguments: [$limit]
+            template: $template
+    
+
